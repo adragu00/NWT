@@ -9,13 +9,16 @@ namespace NWT.Models
     public class Comment
     {
         /************   REGEX   ************/
-        public int Id { get; set; }
+        public int ID { get; set; }
 
-        [Required]
-        [StringLength(1024, MinimumLength = 1)]
+        /*[Required]
+        [StringLength(1024, MinimumLength = 1)]*/
         public string Text { get; set; }
-        public DateTime Date { get; set { Date = DateTime.Now;} }
+        public DateTime Date { get { return DateTime.Now; } }
 
-        public User Author { get; set; }
+
+        // Foreign keys
+        public virtual User User { get; set; }
+        public virtual File File { get; set; }
     }
 }

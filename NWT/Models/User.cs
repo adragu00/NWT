@@ -9,38 +9,35 @@ namespace NWT.Models
     public class User
     {
         /************   REGEX   ************/
-        public int Id { get; set; }
+        public int ID { get; set; }
 
-        [Required]
+        /*[Required]
         [StringLength(30, MinimumLength = 2)]
         [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage =
-            "Numbers and special characters are not allowed in the name.")]
+            "Numbers and special characters are not allowed in the name.")]*/
         public string Name { get; set; }
 
-        [Required]
+        /*[Required]
         [StringLength(30, MinimumLength = 2)]
         [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage =
-            "Numbers and special characters are not allowed in the last name.")]
+            "Numbers and special characters are not allowed in the last name.")]*/
         public string Lastname { get; set; }
 
-        [Required]
-        [StringLength(30, MinimumLength = 2)]
+        /*[Required]
+        [StringLength(30, MinimumLength = 2)]*/
         public string Username { get; set; }
 
-        [Required]
-        [EmailAddress]
+        /*[Required]
+        [EmailAddress]*/
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(30, MinimumLength = 2)]
-        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage =
-            "Numbers and special characters are not allowed in the course name.")]
-        public string Course { get; set; }
-
-        [Required]
-        [Range(1, 3)]
+        /*[Required]
+        [Range(1, 3)]*/
         public int Year { get; set; }
 
+
+        // foreign keys
         public IEnumerable<File> UploadedFiles { get; set; }
+        public IEnumerable<Comment> Comments { get; set; }
     }
 }
